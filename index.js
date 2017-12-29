@@ -4,6 +4,8 @@ const moviesService = require("./lib/services/movies-service");
 const songsService = require("./lib/services/songs-service");
 const audioService = require("./lib/services/audio-service");
 
+const promisesFacade = require("./lib/facades/promises-facade");
+
 module.exports = {
   services: {
     promiseService,
@@ -11,5 +13,6 @@ module.exports = {
     moviesService,
     songsService,
     audioService
-  }
+  },
+  promisesFacade
 }
