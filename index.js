@@ -7,6 +7,7 @@ const audioService = require("./lib/services/audio-service");
 const promisesFacade = require("./lib/facades/promises-facade");
 const songsFacade = require("./lib/facades/songs-facade");
 const counterFacade = require("./lib/facades/counter-facade");
+const churchFacade = require("./lib/facades/church-facade");
 
 module.exports = {
   services: {
@@ -18,5 +19,6 @@ module.exports = {
   },
   promisesFacade,
   songsFacade,
-  counterFacade
+  counterFacade,
+  churchFacade
 }
