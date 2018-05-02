@@ -27,8 +27,11 @@ songsRepository.getAllSongs()
       if (song.lyrics) {
         const lyrics = JSON.parse(song.lyrics);
 
+        let index = 1;
         _.each(lyrics, lyric => {
           lyric.song_id = song.id;
+          lyric.order = index;
+          index++;
         });
 
         unparsedLyrics = unparsedLyrics.concat(lyrics);
@@ -51,7 +54,8 @@ songsRepository.getAllSongs()
         ID: lyric.id,
         SongId: lyric.song_id,
         EnglishText: lyric.english,
-        TamilText: lyric.trans_ta
+        TamilText: lyric.trans_ta,
+        Order: lyric.order
       };
 
       lyricDest.push(converted);

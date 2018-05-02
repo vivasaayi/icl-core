@@ -50,12 +50,12 @@ class PGWrapper {
 }
 
 const INSERT_SONG_QUERY = `INSERT INTO "Song" ("ID", "Name", "TamilText", "TR_TamilText", "ReleaseYear") values ($1, $2, $3, $4, 0)`;
-const INSERT_LYRIOC_QUERY = `INSERT INTO "Lyric" ("ID", "SongId", "EnglishText", "TamilText") values ($1, $2, $3, $4)`;
+const INSERT_LYRIOC_QUERY = `INSERT INTO "Lyric" ("ID", "SongId", "EnglishText", "TamilText", "Order") values ($1, $2, $3, $4, $5)`;
 
 function saveSong(song) {
   const params = [
     song.ID,
-    song.SongId,
+    song.TR_TamilText,
     song.TamilText,
     song.TR_TamilText
   ];
@@ -85,7 +85,8 @@ function saveLyric(lyric) {
     lyric.ID,
     lyric.SongId,
     lyric.EnglishText,
-    lyric.TamilText
+    lyric.TamilText,
+    lyric.Order
   ];
 
   return PGWrapper.executeQuery(INSERT_LYRIOC_QUERY, params)
